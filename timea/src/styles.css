@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+footer{
+    bottom: 0;
+    position:fixed;
+    background-color: #F3F3F3;
+    width: 100%;
+    padding: 20px;
+}
+section{
+    margin: 30px auto 100px auto;
+}
+fa-icon{
+    cursor: pointer;
+}

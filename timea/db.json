@@ -1,0 +1,29 @@
+{
+  "payments": [
+    {
+      "id": 1,
+      "creditCardNumber": "1111 1111 1111 1111",
+      "cardHolder": "Mateen",
+      "expirationDate": "12 / 2021",
+      "securityCode": "111",
+      "amount": "334343"
+    },
+    {
+      "id": 2,
+      "creditCardNumber": "1111 1111 1111 1111",
+      "cardHolder": "mtn",
+      "expirationDate": "06 / 23",
+      "securityCode": "782",
+      "amount": "3600"
+    },
+    {
+      "id": 3,
+      "creditCardNumber": "1111 1111 1111 1111",
+      "cardHolder": "sss",
+      "expirationDate": "11 / 21",
+      "securityCode": "222",
+      "amount": 222
+    }
+    
+  ]
+}

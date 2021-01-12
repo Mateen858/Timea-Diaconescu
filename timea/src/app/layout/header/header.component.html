@@ -1,0 +1,21 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <a class="navbar-brand" [routerLink]="['/payments']" routerLinkActive="router-link-active" id="app-title">Timea</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" id="lbl-current-location">{{currentLocation}} <span class="sr-only"></span></a>
+      </li>
+      
+    </ul>
+    <div class="my-2 my-lg-0">
+      <button id="btn-create-new" class="btn btn-success my-2 my-sm-0" [routerLink]="['/payments/add']" routerLinkActive="router-link-active" >
+        <fa-icon [icon]="['fas', 'plus-circle']" class="mr-1"></fa-icon>
+        Pay
+      </button>
+    </div>
+  </div>
+</nav>

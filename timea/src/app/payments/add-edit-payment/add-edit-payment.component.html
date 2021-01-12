@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <form [formGroup]="paymentForm" id="form-payment" (ngSubmit)="save()">
+        <div class="row form-group">
+          <label for="txt-card-number" class="col-lg-4 col-form-label text-right" id="lbl-card-number">Credit Card Number</label>
+          <div class="col-lg-8"
+            [ngClass]="{'has-error':!paymentForm.controls['creditCardNumber'].valid && paymentForm.controls['creditCardNumber'].touched}">
+            <input id="txt-card-number" type="text" class="form-control" [formControl]="paymentForm.controls['creditCardNumber']"
+              name="creditCardNumber" ccNumber />
+            <small class="text-danger" 
+            *ngIf="(!paymentForm.controls['creditCardNumber'].value && !paymentForm.controls['creditCardNumber'].value && paymentForm.controls['creditCardNumber'].touched)">
+              Credit Card Number is required
+            </small>
+
+            <small class="text-danger" 
+            *ngIf="(paymentForm.controls['creditCardNumber'].value && paymentForm.controls['creditCardNumber'].errors?.ccNumber && paymentForm.controls['creditCardNumber'].touched)">
+              Credit Card Number is invalid
+            </small>
+           
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <label for="txt-card-holder" class="col-lg-4 col-form-label text-right" id="lbl-card-holder">Card Holder Name</label>
+          <div class="col-lg-8"
+            [ngClass]="{'has-error':!paymentForm.controls['cardHolder'].valid && paymentForm.controls['cardHolder'].touched}">
+            <input id="txt-card-holder" type="text" class="form-control" [formControl]="paymentForm.controls['cardHolder']"
+              name="cardHolder" />
+            <small class="text-danger"
+              *ngIf="(!paymentForm.controls['cardHolder'].valid && paymentForm.controls['cardHolder'].touched)">
+              Card Holder Name is required
+            </small>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <label for="txt-expire-date" class="col-lg-4 col-form-label text-right" id="lbl-expire-date">Expiration Date</label>
+          <div class="col-lg-8"
+            [ngClass]="{'has-error':!paymentForm.controls['expirationDate'].valid && paymentForm.controls['expirationDate'].touched}">
+            <input id="txt-expire-date" type="text" class="form-control" [formControl]="paymentForm.controls['expirationDate']"
+              name="expirationDate" ccExp/>
+              
+            <small class="text-danger"
+              *ngIf="(!paymentForm.controls['creditCardNumber'].value && !paymentForm.controls['expirationDate'].valid && paymentForm.controls['expirationDate'].touched)">
+              Expiration Date is required
+            </small>
+
+            <small class="text-danger"
+              *ngIf="(paymentForm.controls['expirationDate'].value && paymentForm.controls['expirationDate'].errors?.expDate && paymentForm.controls['expirationDate'].touched)">
+              Card is expire
+            </small>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <label for="txt-security-code" class="col-lg-4 col-form-label text-right" id="lbl-security-code">Security Code</label>
+          <div class="col-lg-8"
+            [ngClass]="{'has-error':!paymentForm.controls['securityCode'].valid && paymentForm.controls['securityCode'].touched}">
+            <input id="txt-security-code" type="text" class="form-control" [formControl]="paymentForm.controls['securityCode']"
+              name="securityCode" ccCVC/>
+            <small class="text-danger"
+              *ngIf="(paymentForm.controls['securityCode'].value && paymentForm.controls['securityCode'].errors?.minlength && paymentForm.controls['securityCode'].touched)">
+              Minimum 3 digits are requird. 
+            </small>
+          </div>
+        </div>
+
+
+        <div class="row form-group">
+          <label for="txt-amount" class="col-lg-4 col-form-label text-right" id="lbl-amount">Amount</label>
+          <div class="col-lg-8" [ngClass]="{'has-error':!paymentForm.controls['amount'].valid && paymentForm.controls['amount'].touched}">
+            <input id="txt-amount" type="number" class="form-control" [formControl]="paymentForm.controls['amount']"
+              name="amount" />
+            <small class="text-danger"
+              *ngIf="(!paymentForm.controls['amount'].value && !paymentForm.controls['amount'].valid && paymentForm.controls['amount'].touched)">
+              Amount is required
+            </small>
+
+            <small class="text-danger"
+              *ngIf="(paymentForm.controls['amount'].value && paymentForm.controls['amount'].errors?.min && paymentForm.controls['amount'].touched)">
+              Amount must be greater than 0
+            </small>
+
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="col-md-7 text-right">
+      <button (click)="goBack()" id="btn-cancel" class="btn btn-default">
+        <fa-icon [icon]="['fas', 'backspace']"></fa-icon>
+        Cancel
+      </button>
+      <button [disabled]="paymentForm.invalid" (click)="save()" id="btn-save" class="btn btn-primary">
+        <!-- <fa-icon *ngIf="isSaving" [icon]="['fas', 'circle-notch']" [spin]="true" id="icon-saving"></fa-icon>
+        <fa-icon *ngIf="!isSaving" [icon]="['fas', 'save']"></fa-icon> -->
+        Save
+      </button>
+
+    </div>
+
+
+  </div>
+
+</div>
